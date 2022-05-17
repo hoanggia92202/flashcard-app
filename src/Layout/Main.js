@@ -1,14 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Deck() {
-  return (
-    <>
-      <Link to="/decks/new">
-        <button type="button" className="btn btn-primary btn-lg">
-          + Create Deck
-        </button>
-      </Link>
+function Main() {
+  const Deck1 = () => {
+    return (
       <div className="row">
         <div className="col-sm-7">
           <div className="card">
@@ -22,12 +17,16 @@ function Deck() {
                 content.
               </p>
               <div>
-                <button type="button" className="btn btn-secondary btn-lg">
-                  View
-                </button>
-                <button type="button" className="btn btn-primary btn-lg">
-                  Study
-                </button>
+                <Link to="/decks/1">
+                  <button type="button" className="btn btn-secondary btn-lg">
+                    View
+                  </button>
+                </Link>
+                <Link to="/decks/1/study">
+                  <button type="button" className="btn btn-primary btn-lg">
+                    Study
+                  </button>
+                </Link>
                 <button type="button" className="btn btn-danger btn-lg">
                   Delete
                 </button>
@@ -36,8 +35,18 @@ function Deck() {
           </div>
         </div>
       </div>
-    </>
+    );
+  };
+  return (
+    <div className="container">
+      <Link to="/decks/new">
+        <button type="button" className="btn btn-primary btn-lg">
+          + Create Deck
+        </button>
+      </Link>
+      <Deck1 />
+    </div>
   );
 }
 
-export default Deck;
+export default Main;
