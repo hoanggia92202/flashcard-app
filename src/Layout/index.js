@@ -15,7 +15,6 @@ function Layout() {
     const loadDecks = async () => {
       const result = await listDecks();
       setDecks(result);
-      console.log("res", result);
     };
     loadDecks();
   }, []);
@@ -30,7 +29,7 @@ function Layout() {
           <Main decks={decks} />
         </Route>
         <Route path={`${path}decks/:deckId/study`}>
-          <Study decks={decks} />
+          <Study />
         </Route>
         <Route path={`${path}decks/new`}>
           <CreateDeck />

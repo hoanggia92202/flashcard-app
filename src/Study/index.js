@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navigation from "./Navigation";
 import Card from "./Card";
 import Title from "./Title";
 import { useParams } from "react-router-dom";
+import { readDeck } from "../utils/api";
 
-function Study({ decks }) {
+function Study() {
   const { deckId } = useParams();
-  const deck = decks.filter((deck) => deck.id === parseFloat(deckId));
-  const { cards } = deck[0];
+  const [title, setTitle] = useState("");
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    const loadDeck = async () => {
+      const deck = await readDeck(deckId);
+      setTitle(deck.name);
+      setCards(deck.cards);
+    };
+    loadDeck();
+  }, [deckId]);
 
   return (
     <div className="container">
       <Navigation />
-      <Title />
+      <Title title={title} />
       <Card cards={cards} />
     </div>
   );

@@ -2,6 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Deck = ({ name, description, cards, id }) => {
+  const deleteButtonHandler = () => {
+    const confirm = window.confirm(
+      "\nDelete this deck ?\n\nYou will not be able to recover it."
+    );
+  };
   return (
     <div className="row">
       <div className="col-sm-7">
@@ -23,7 +28,11 @@ const Deck = ({ name, description, cards, id }) => {
                   Study
                 </button>
               </Link>
-              <button type="button" className="btn btn-danger btn-lg">
+              <button
+                type="button"
+                className="btn btn-danger btn-lg"
+                onClick={deleteButtonHandler}
+              >
                 Delete
               </button>
             </div>

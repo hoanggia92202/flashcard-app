@@ -6,21 +6,25 @@ import Button from "./Button";
 const Card = ({ cards }) => {
   const history = useHistory();
   const [index, setIndex] = useState(0);
-  const totalCard = cards.length;
-  const cardNumber = index + 1;
-  const currentCard = cards[index];
-  const [cardSide, setCardSide] = useState(currentCard.front);
+  const [currentCard, setCurrentCard] = useState("");
+  const [totalCard, setTotalCard] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardSide, setCardSide] = useState("");
   const [nextButton, setNextButton] = useState(false);
 
   useEffect(() => {
-    /* set card to front side if next card is selected  */
-    setCardSide(currentCard.front);
-  }, [currentCard]);
+    if (cards.length > 0) {
+      setCardSide(cards[index].front);
+      setCurrentCard(cards[index]);
+      setCardNumber(index + 1);
+      setTotalCard(cards.length);
+    }
+  }, [cards, index]);
 
   const flipButtonHandler = () => {
     /* flip card front/back  */
     setCardSide(
-      cardSide === currentCard.front ? currentCard.back : cards[index].front
+      cardSide === currentCard.front ? currentCard.back : currentCard.front
     );
     /* enable next button */
     setNextButton(true);
@@ -50,7 +54,7 @@ const Card = ({ cards }) => {
         <div className="card">
           <div className="card-body">
             <div className="d-flex justify-content-between">
-              <h5 className="card-title">{`Card ${cardNumber} of ${totalCard}`}</h5>
+              <h5 className="card-title">{`Card ${cardNumber}  of ${totalCard}`}</h5>
             </div>
             <p className="card-text">{cardSide}</p>
             <Button buttonType={"Flip"} buttonTypeHandler={flipButtonHandler} />
