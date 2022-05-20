@@ -1,10 +1,17 @@
 import React from "react";
+import Navigation from "./Navigation";
+import Form from "./Form";
+import { useRouteMatch } from "react-router-dom";
 
 function CreateDeck() {
+  const { path } = useRouteMatch();
   return (
-    <>
-      <h1>CreateDeck</h1>
-    </>
+    //console.log("createZDeck match", path),
+    <div className="container">
+      <Navigation />
+      <h1>Create Deck</h1>
+      <Form />
+    </div>
   );
 }
 

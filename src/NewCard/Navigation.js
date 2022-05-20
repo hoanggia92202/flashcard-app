@@ -9,10 +9,10 @@ const Navigation = () => {
           <Link to={`/`}>Home</Link>
         </li>
         <li className="breadcrumb-item">
-          <a href="#">Rendering in React</a>
+          <a href="#">React Router</a>
         </li>
         <li className="breadcrumb-item active" aria-current="page">
-          Data
+          Add Card
         </li>
       </ol>
     </nav>

@@ -37,13 +37,14 @@ const Card = ({ cards }) => {
         "\nRestart cards ?\n\nClick 'cancel' to return to the home page."
       );
       if (confirm) {
+        /* reset the card to beginning of deck */
         setIndex(0);
         setNextButton(false);
       } else {
         history.push("/");
       }
     } else {
-      /* increase card index  */
+      /* increase card index, if there's more card in the deck */
       setIndex((preCard) => preCard + 1);
     }
   };

@@ -1,19 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { deleteDeck } from "../utils/api";
 
-const Deck = ({ loadDecks, name, description, cards, id }) => {
-  const deleteButtonHandler = async () => {
-    const confirm = window.confirm(
-      "\nDelete this deck ?\n\nYou will not be able to recover it."
-    );
+const Deck = ({ deckInfo }) => {
+  const { name, description, id } = deckInfo;
 
-    if (confirm) {
-      await deleteDeck(id);
-      /* reload the list of decks */
-      loadDecks();
-    }
-  };
   return (
     <div className="row">
       <div className="col-sm-7">
@@ -21,13 +11,13 @@ const Deck = ({ loadDecks, name, description, cards, id }) => {
           <div className="card-body">
             <div className="d-flex justify-content-between">
               <h5 className="card-title">{name}</h5>
-              <h6>{cards.length}</h6>
+              <h6>{}</h6>
             </div>
             <p className="card-text">{description}</p>
             <div>
-              <Link to={`/decks/${id}`}>
+              <Link>
                 <button type="button" className="btn btn-secondary btn-lg">
-                  View
+                  Edit
                 </button>
               </Link>
               <Link to={`/decks/${id}/study`}>
@@ -35,11 +25,12 @@ const Deck = ({ loadDecks, name, description, cards, id }) => {
                   Study
                 </button>
               </Link>
-              <button
-                type="button"
-                className="btn btn-danger btn-lg"
-                onClick={deleteButtonHandler}
-              >
+              <Link to={`/decks/${id}/cards/new`}>
+                <button type="button" className="btn btn-primary btn-lg">
+                  Add Card
+                </button>
+              </Link>
+              <button type="button" className="btn btn-danger btn-lg">
                 Delete
               </button>
             </div>

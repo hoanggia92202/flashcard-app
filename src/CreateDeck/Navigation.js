@@ -8,11 +8,8 @@ const Navigation = () => {
         <li className="breadcrumb-item">
           <Link to={`/`}>Home</Link>
         </li>
-        <li className="breadcrumb-item">
-          <a href="#">Rendering in React</a>
-        </li>
         <li className="breadcrumb-item active" aria-current="page">
-          Data
+          Create Deck
         </li>
       </ol>
     </nav>
