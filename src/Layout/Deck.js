@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { deleteDeck } from "../utils/api";
 
-const Deck = ({ loadDecks, name, description, cards, id }) => {
+const Deck = ({ name, description, cards, id }) => {
   const deleteButtonHandler = async () => {
     const confirm = window.confirm(
       "\nDelete this deck ?\n\nYou will not be able to recover it."
@@ -11,7 +11,6 @@ const Deck = ({ loadDecks, name, description, cards, id }) => {
     if (confirm) {
       await deleteDeck(id);
       /* reload the list of decks */
-      loadDecks();
     }
   };
   return (

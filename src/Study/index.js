@@ -8,22 +8,17 @@ import { readDeck } from "../utils/api";
 function Study() {
   const { deckId } = useParams();
   const [title, setTitle] = useState("");
-  const [cards, setCards] = useState([]);
+  //const [cards, setCards] = useState([]);
+  //const { name, cards } = decks;
 
-  useEffect(() => {
-    const loadDeck = async () => {
-      const deck = await readDeck(deckId);
-      setTitle(deck.name);
-      setCards(deck.cards);
-    };
-    loadDeck();
-  }, [deckId]);
+  //retrieve the deck using deckId
 
   return (
+    //  console.log("study", decks),
     <div className="container">
       <Navigation />
-      <Title title={title} />
-      <Card cards={cards} />
+      <Title name={"p"} />
+      <Card cards={"p"} />
     </div>
   );
 }

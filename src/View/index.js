@@ -6,27 +6,31 @@ import Navigation from "./Navigation";
 import NewCard from "../NewCard/NewCard";
 import { readDeck } from "../utils/api";
 
+/* only show 1 deck, and cards for that single deck */
 function View() {
   const { path } = useRouteMatch();
   const { deckId } = useParams();
-  const [deckInfo, setDeckInfo] = useState({});
+  //const [deckInfo, setDeckInfo] = useState({});
+
+  /*
+const loadDeck = async (deckId) => {
+    const { name, description, id, cards } = await readDeck(deckId);
+    setDeckInfo({ name, description, id, cards });
+  };
 
   useEffect(() => {
-    const loadDeck = async () => {
-      const { name, description, id, cards } = await readDeck(deckId);
-      setDeckInfo({ name, description, id, cards });
-    };
-    loadDeck();
+    loadDeck(deckId);
   }, [deckId]);
+  */
 
   return (
     <div className="container">
       <Switch>
         <Route exact={true} path={`${path}`}>
           <Navigation />
-          <Deck deckInfo={deckInfo} />
+          <Deck decks={"p"} />
           <h1>Cards</h1>
-          <Cards deckInfo={deckInfo} />
+          <Cards decks={"p"} />
         </Route>
         <Route path={`${path}/cards/new`}>
           <NewCard />

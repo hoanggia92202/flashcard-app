@@ -1,35 +1,10 @@
 {
   "decks": [
     {
-      "name": "React Router",
-      "description": "basic routing functions.",
-      "id": 10
+      "name": "React",
+      "description": "Basic React function.",
+      "id": 1
     }
   ],
-  "cards": [
-    {
-      "front": "which dog ?",
-      "back": "maxxy...",
-      "deckId": 10,
-      "id": 1
-    },
-    {
-      "front": "Where is UseRouteMatch located in ?",
-      "back": "react-router-dom package",
-      "deckId": 10,
-      "id": 2
-    },
-    {
-      "front": "will it save?",
-      "back": "maybe",
-      "deckId": 10,
-      "id": 3
-    },
-    {
-      "front": "lllllll",
-      "back": "nnnnnnn",
-      "deckId": 10,
-      "id": 4
-    }
-  ]
+  "cards": []
 }

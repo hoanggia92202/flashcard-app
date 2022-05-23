@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { deleteDeck } from "../utils/api";
 
-const Deck = ({ deckInfo }) => {
-  const { name, description, id } = deckInfo;
+const Deck = () => {
+  //const { name, description, id } = deckInfo;
 
   return (
     <div className="row">
@@ -10,22 +11,22 @@ const Deck = ({ deckInfo }) => {
         <div className="card">
           <div className="card-body">
             <div className="d-flex justify-content-between">
-              <h5 className="card-title">{name}</h5>
+              <h5 className="card-title">{"p"}</h5>
               <h6>{}</h6>
             </div>
-            <p className="card-text">{description}</p>
+            <p className="card-text">{"p"}</p>
             <div>
               <Link>
                 <button type="button" className="btn btn-secondary btn-lg">
                   Edit
                 </button>
               </Link>
-              <Link to={`/decks/${id}/study`}>
+              <Link to={`/decks/${1}/study`}>
                 <button type="button" className="btn btn-primary btn-lg">
                   Study
                 </button>
               </Link>
-              <Link to={`/decks/${id}/cards/new`}>
+              <Link to={`/decks/${1}/cards/new`}>
                 <button type="button" className="btn btn-primary btn-lg">
                   Add Card
                 </button>

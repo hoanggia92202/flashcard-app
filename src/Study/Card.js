@@ -13,7 +13,7 @@ const Card = ({ cards }) => {
   const [nextButton, setNextButton] = useState(false);
 
   useEffect(() => {
-    if (cards.length > 0) {
+    if (cards) {
       setCardSide(cards[index].front);
       setCurrentCard(cards[index]);
       setCardNumber(index + 1);

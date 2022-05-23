@@ -3,19 +3,7 @@ import { Link } from "react-router-dom";
 import { listDecks } from "../utils/api/index";
 import Deck from "./Deck";
 
-function Main() {
-  const [decks, setDecks] = useState([]);
-
-  const loadDecks = async () => {
-    const decks = await listDecks();
-    setDecks(decks);
-  };
-
-  /* load decks when app start */
-  useEffect(() => {
-    loadDecks();
-  }, []);
-
+function Main({ decks }) {
   return (
     <div className="container">
       <Link to="/decks/new">
@@ -25,7 +13,6 @@ function Main() {
       </Link>
       {decks.map(({ name, description, cards, id }) => (
         <Deck
-          loadDecks={loadDecks}
           key={id}
           name={name}
           description={description}
