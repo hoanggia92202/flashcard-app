@@ -13,7 +13,7 @@ const Card = ({ cards }) => {
   const [nextButton, setNextButton] = useState(false);
 
   useEffect(() => {
-    if (cards) {
+    if (cards.length > 0) {
       setCardSide(cards[index].front);
       setCurrentCard(cards[index]);
       setCardNumber(index + 1);
@@ -31,6 +31,7 @@ const Card = ({ cards }) => {
   };
 
   const nextButtonHandler = () => {
+    // console.log("nextButtonHandler: ", cards.length);
     /* if end of deck */
     if (index === cards.length - 1) {
       const confirm = window.confirm(

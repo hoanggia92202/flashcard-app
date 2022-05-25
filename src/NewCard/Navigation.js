@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navigation = () => {
+const Navigation = ({ name }) => {
   return (
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
@@ -9,7 +9,7 @@ const Navigation = () => {
           <Link to={`/`}>Home</Link>
         </li>
         <li className="breadcrumb-item">
-          <a href="#">React Router</a>
+          <a href="#">{name}</a>
         </li>
         <li className="breadcrumb-item active" aria-current="page">
           Add Card

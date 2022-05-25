@@ -1,6 +1,18 @@
 import { Link } from "react-router-dom";
+import { deleteCard } from "../utils/api";
 
-const Card = ({ front, back }) => {
+const Card = ({ front, back, id, deckId, loadDeck }) => {
+  const deleteButtonHandler = async () => {
+    const confirm = window.confirm(
+      "\nDelete this card ?\n\nYou will not be able to recover it."
+    );
+
+    if (confirm) {
+      await deleteCard(id);
+      /* reload the list of decks */
+      loadDeck(deckId);
+    }
+  };
   return (
     <div className="row">
       <div className="col-sm-7">
@@ -16,7 +28,11 @@ const Card = ({ front, back }) => {
                   Edit
                 </button>
               </Link>
-              <button type="button" className="btn btn-danger btn-lg">
+              <button
+                onClick={deleteButtonHandler}
+                type="button"
+                className="btn btn-danger btn-lg"
+              >
                 Delete
               </button>
             </div>

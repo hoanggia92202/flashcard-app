@@ -1,10 +1,23 @@
 {
   "decks": [
     {
-      "name": "React",
-      "description": "Basic React function.",
+      "name": "React basic 39",
+      "description": "Basic react formulas 39.",
       "id": 1
     }
   ],
-  "cards": []
+  "cards": [
+    {
+      "front": "whats browserRouter ?",
+      "back": "It's used for routing in React.",
+      "deckId": 1,
+      "id": 3
+    },
+    {
+      "front": "what number?",
+      "back": "777",
+      "deckId": 1,
+      "id": 4
+    }
+  ]
 }

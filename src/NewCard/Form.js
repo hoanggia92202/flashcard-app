@@ -24,7 +24,7 @@ const Form = () => {
       front: cardFront,
       back: cardBack,
     });
-    console.log("new card: ", newCard);
+    //console.log("new card: ", newCard);
     //history.push(`/decks/${newDeck.id}`);
   };
 
