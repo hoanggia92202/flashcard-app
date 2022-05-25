@@ -26,7 +26,7 @@ function Study() {
   return (
     //console.log("study", deckId),
     <div className="container">
-      <Navigation />
+      <Navigation name={title} />
       <Title name={title} />
       {cards.length < 3 ? (
         <NotEnoughCard cards={cards} />
