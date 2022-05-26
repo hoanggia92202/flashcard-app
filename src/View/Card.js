@@ -24,14 +24,14 @@ const Card = ({ front, back, id, deckId, loadDeck }) => {
             </div>
             <div>
               <Link to={`/decks/${deckId}/cards/${id}/edit`}>
-                <button type="button" className="btn btn-secondary btn-lg">
+                <button type="button" className="btn btn-secondary btn-md">
                   Edit
                 </button>
               </Link>
               <button
                 onClick={deleteButtonHandler}
                 type="button"
-                className="btn btn-danger btn-lg"
+                className="btn btn-danger btn-md ml-2"
               >
                 Delete
               </button>

@@ -3,7 +3,13 @@ import { createCard, updateCard } from "../utils/api";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { useState } from "react";
 
-const Form = ({ front = "", back = "", cardId = "", deckId = "" }) => {
+const Form = ({
+  front = "",
+  back = "",
+  cardId = "",
+  deckId = "",
+  loadDeck,
+}) => {
   const { deckId: paramDeckId } = useParams();
   const [cardFront, setCardFront] = useState("");
   const [cardBack, setCardBack] = useState("");
@@ -31,14 +37,14 @@ const Form = ({ front = "", back = "", cardId = "", deckId = "" }) => {
         id: cardId,
         deckId: deckId,
       });
+      loadDeck(deckId);
       history.goBack();
-
-      //
     } else {
       await createCard(paramDeckId, {
         front: cardFront,
         back: cardBack,
       });
+      history.goBack();
     }
   };
 

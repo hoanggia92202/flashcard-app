@@ -1,23 +1,12 @@
 {
   "decks": [
     {
-      "name": "React basic 911",
-      "description": "Basic react formulas 39.",
+      "name": "polo",
+      "description": "yellow dog",
       "id": 1
-    },
-    {
-      "name": "guess dog",
-      "description": "type of dog",
-      "id": 2
     }
   ],
   "cards": [
-    {
-      "front": "dog face large xl",
-      "back": "true.",
-      "id": 3,
-      "deckId": 1
-    },
     {
       "front": "what number?>>>>>",
       "back": "777>>>>>>",
@@ -29,21 +18,9 @@
       "id": 5
     },
     {
-      "front": "yellow dog name?",
-      "back": "Polo.",
-      "deckId": 2,
-      "id": 6
-    },
-    {
       "front": "www.polo",
       "back": "Iwww.polo",
       "id": 7
-    },
-    {
-      "front": "yyyyyyyyy",
-      "back": "yyyyyyyy",
-      "deckId": null,
-      "id": 8
     },
     {
       "front": "yyyyyy not yyyyyy",
@@ -56,28 +33,28 @@
       "id": 10
     },
     {
-      "front": "I love who?",
-      "back": "polo the dog.",
-      "deckId": 0,
-      "id": 11
+      "front": "polo 666",
+      "back": "dog 666\n",
+      "id": 11,
+      "deckId": 1
     },
     {
-      "front": "yellow what?",
-      "back": "dog.",
-      "deckId": 0,
-      "id": 12
+      "front": "max 888",
+      "back": "bully the best 888.",
+      "id": 12,
+      "deckId": 1
     },
     {
-      "front": "as",
-      "back": "as",
-      "deckId": 0,
+      "front": "test front",
+      "back": "test back",
+      "deckId": 1,
       "id": 13
     },
     {
-      "front": "cat too lazy",
-      "back": "back cat",
-      "id": 14,
-      "deckId": 1
+      "front": "test",
+      "back": "test",
+      "deckId": 1,
+      "id": 14
     }
   ]
 }

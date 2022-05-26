@@ -3,7 +3,7 @@ import Header from "./Header";
 import Main from "./Main";
 import Study from "../Study";
 import View from "../View";
-import NewDeck from "../NewDeck";
+import NewDeck from "../DeckTemplate";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 //import { listDecks } from "../utils/api";
 import NotFound from "./NotFound";

@@ -2,7 +2,7 @@ import React from "react";
 import Navigation from "./Navigation";
 import Form from "./Form";
 
-function NewDeck({ title, name = null, description = null, id = null }) {
+function NewDeck({ title, name = "", description = "", id = "" }) {
   return (
     <div className="container">
       <Navigation deckName={name} type={title} />

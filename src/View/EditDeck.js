@@ -1,15 +1,13 @@
-import NewDeck from "../NewDeck";
+import DeckTemplate from "../DeckTemplate";
 
-const EditDeck = ({ deckInfo }, loadDeck) => {
+const EditDeck = ({ deckInfo }) => {
   const { name, description, id } = deckInfo;
   return (
-    //console.log("edir :", loadDeck(1)),
-    <NewDeck
+    <DeckTemplate
       title={"Edit Deck"}
       name={name}
       description={description}
       id={id}
-      loadDeck={loadDeck}
     />
   );
 };

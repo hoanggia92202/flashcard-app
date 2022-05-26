@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createDeck, updateDeck } from "../utils/api";
 import { useHistory, Link } from "react-router-dom";
 import { useState } from "react";
 
-const Form = ({ defaultDeckName, defaultDescription, title, id, loadDeck }) => {
+const Form = ({
+  defaultDeckName = "",
+  defaultDescription = "",
+  title,
+  id,
+  loadDeck,
+}) => {
   const history = useHistory();
   const [deckName, setDeckName] = useState("");
   const [description, setDescription] = useState("");
+
+  useEffect(() => {
+    setDeckName(defaultDeckName);
+    setDescription(defaultDescription);
+  }, [defaultDeckName, defaultDescription]);
 
   const onChangeHandler = (event) => {
     if (event.target.id === "name") {
@@ -20,8 +31,8 @@ const Form = ({ defaultDeckName, defaultDescription, title, id, loadDeck }) => {
     event.preventDefault();
     if (title === "Edit Deck") {
       await updateDeck({
-        name: deckName || defaultDeckName,
-        description: description || defaultDescription,
+        name: deckName,
+        description: description,
         id: id,
       });
       //loadDeck(id);
@@ -41,7 +52,7 @@ const Form = ({ defaultDeckName, defaultDescription, title, id, loadDeck }) => {
         <label htmlFor="name">Name</label>
         <input
           onChange={onChangeHandler}
-          value={deckName || defaultDeckName}
+          value={deckName}
           type="text"
           className="form-control"
           id="name"
@@ -52,7 +63,7 @@ const Form = ({ defaultDeckName, defaultDescription, title, id, loadDeck }) => {
         <label htmlFor="description">Description</label>
         <textarea
           onChange={onChangeHandler}
-          value={description || defaultDescription}
+          value={description}
           className="form-control"
           id="description"
           rows="7"
