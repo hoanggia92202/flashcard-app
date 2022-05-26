@@ -5,15 +5,19 @@ import Deck from "./Deck";
 import Navigation from "./Navigation";
 import NewCard from "../NewCard";
 import EditDeck from "./EditDeck";
+import EditCard from "./EditCard";
 import { readDeck } from "../utils/api";
+import { useHistory } from "react-router-dom";
 
 /* only show 1 deck, and cards for that single deck */
 function View() {
   const { path } = useRouteMatch();
   const { deckId } = useParams();
   const [deckInfo, setDeckInfo] = useState({});
+  const history = useHistory();
 
   const loadDeck = async (deckId) => {
+    console.log("load deck execute....");
     const deck = await readDeck(deckId);
     setDeckInfo({ ...deck });
   };
@@ -23,6 +27,7 @@ function View() {
   }, [deckId]);
 
   return (
+    //console.log("loadDeck????:", loadDeck),
     <div className="container">
       <Switch>
         <Route exact={true} path={`${path}`}>
@@ -32,10 +37,13 @@ function View() {
           <Cards deckInfo={deckInfo} loadDeck={loadDeck} />
         </Route>
         <Route path={`${path}/cards/new`}>
-          <NewCard name={deckInfo.name} />
+          <NewCard deckName={deckInfo.name} />
         </Route>
         <Route path={`${path}/edit`}>
           <EditDeck deckInfo={deckInfo} loadDeck={loadDeck} />
+        </Route>
+        <Route path={`/decks/:deckId/cards/:cardId/edit`}>
+          <EditCard loadDeck={loadDeck} />
         </Route>
       </Switch>
     </div>

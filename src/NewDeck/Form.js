@@ -24,7 +24,7 @@ const Form = ({ defaultDeckName, defaultDescription, title, id, loadDeck }) => {
         description: description || defaultDescription,
         id: id,
       });
-      loadDeck(id);
+      //loadDeck(id);
       history.push(`/decks/${id}`);
     } else {
       const newDeck = await createDeck({

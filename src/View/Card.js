@@ -23,7 +23,7 @@ const Card = ({ front, back, id, deckId, loadDeck }) => {
               <p className="card-title">{back}</p>
             </div>
             <div>
-              <Link>
+              <Link to={`/decks/${deckId}/cards/${id}/edit`}>
                 <button type="button" className="btn btn-secondary btn-lg">
                   Edit
                 </button>

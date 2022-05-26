@@ -2,13 +2,7 @@ import React from "react";
 import Navigation from "./Navigation";
 import Form from "./Form";
 
-function NewDeck({
-  title,
-  name = null,
-  description = null,
-  id = null,
-  loadDeck = null,
-}) {
+function NewDeck({ title, name = null, description = null, id = null }) {
   return (
     <div className="container">
       <Navigation deckName={name} type={title} />
@@ -18,7 +12,6 @@ function NewDeck({
         defaultDescription={description}
         title={title}
         id={id}
-        loadDeck={loadDeck}
       />
     </div>
   );

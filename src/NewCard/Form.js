@@ -1,14 +1,18 @@
-import React from "react";
-import { createCard } from "../utils/api";
-import { Link, useHistory, useRouteMatch, useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { createCard, updateCard } from "../utils/api";
+import { Link, useParams, useHistory } from "react-router-dom";
 import { useState } from "react";
 
-const Form = () => {
-  const history = useHistory();
-  const { path } = useRouteMatch();
-  const { deckId } = useParams();
+const Form = ({ front = "", back = "", cardId = "", deckId = "" }) => {
+  const { deckId: paramDeckId } = useParams();
   const [cardFront, setCardFront] = useState("");
   const [cardBack, setCardBack] = useState("");
+  const history = useHistory();
+
+  useEffect(() => {
+    setCardFront(front);
+    setCardBack(back);
+  }, [back, front]);
 
   const onChangeHandler = (event) => {
     if (event.target.id === "front") {
@@ -19,13 +23,23 @@ const Form = () => {
   };
 
   const submitHandler = async (event) => {
-    //event.preventDefault();
-    const newCard = await createCard(deckId, {
-      front: cardFront,
-      back: cardBack,
-    });
-    //console.log("new card: ", newCard);
-    //history.push(`/decks/${newDeck.id}`);
+    event.preventDefault();
+    if (cardId) {
+      await updateCard({
+        front: cardFront,
+        back: cardBack,
+        id: cardId,
+        deckId: deckId,
+      });
+      history.goBack();
+
+      //
+    } else {
+      await createCard(paramDeckId, {
+        front: cardFront,
+        back: cardBack,
+      });
+    }
   };
 
   return (

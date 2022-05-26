@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navigation from "./Navigation";
 import Form from "./Form";
 
-const NewCard = ({ name }) => {
+const NewCard = ({ card = {}, deckName = "" }) => {
+  const { back, front, id: cardId, deckId } = card;
+
   return (
+    //console.log("load deck>>>: ", ),
     <div className="container">
-      <Navigation name={name} />
-      <h1>{name}: Add Card</h1>
-      <Form />
+      <Navigation deckName={deckName} cardId={cardId} />
+      <h1>{cardId ? `Edit Card` : `${deckName}: Add Card`}</h1>
+      <Form front={front} back={back} cardId={cardId} deckId={deckId} />
     </div>
   );
 };

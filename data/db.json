@@ -1,23 +1,83 @@
 {
   "decks": [
     {
-      "name": "React basic 39",
+      "name": "React basic 911",
       "description": "Basic react formulas 39.",
       "id": 1
+    },
+    {
+      "name": "guess dog",
+      "description": "type of dog",
+      "id": 2
     }
   ],
   "cards": [
     {
-      "front": "whats browserRouter ?",
-      "back": "It's used for routing in React.",
-      "deckId": 1,
-      "id": 3
+      "front": "dog face large xl",
+      "back": "true.",
+      "id": 3,
+      "deckId": 1
     },
     {
-      "front": "what number?",
-      "back": "777",
-      "deckId": 1,
+      "front": "what number?>>>>>",
+      "back": "777>>>>>>",
       "id": 4
+    },
+    {
+      "front": "oh no",
+      "back": "oh no",
+      "id": 5
+    },
+    {
+      "front": "yellow dog name?",
+      "back": "Polo.",
+      "deckId": 2,
+      "id": 6
+    },
+    {
+      "front": "www.polo",
+      "back": "Iwww.polo",
+      "id": 7
+    },
+    {
+      "front": "yyyyyyyyy",
+      "back": "yyyyyyyy",
+      "deckId": null,
+      "id": 8
+    },
+    {
+      "front": "yyyyyy not yyyyyy",
+      "back": "yyyyyy not yyyyyy",
+      "id": 9
+    },
+    {
+      "front": "ty",
+      "back": "ty",
+      "id": 10
+    },
+    {
+      "front": "I love who?",
+      "back": "polo the dog.",
+      "deckId": 0,
+      "id": 11
+    },
+    {
+      "front": "yellow what?",
+      "back": "dog.",
+      "deckId": 0,
+      "id": 12
+    },
+    {
+      "front": "as",
+      "back": "as",
+      "deckId": 0,
+      "id": 13
+    },
+    {
+      "front": "cat too lazy",
+      "back": "back cat",
+      "id": 14,
+      "deckId": 1
     }
   ]
 }
