@@ -27,6 +27,10 @@ const Form = ({
     }
   };
 
+  const cancelButtonHandler = () => {
+    history.goBack();
+  };
+
   const submitHandler = async (event) => {
     event.preventDefault();
     if (title === "Edit Deck") {
@@ -35,7 +39,7 @@ const Form = ({
         description: description,
         id: id,
       });
-      //loadDeck(id);
+      loadDeck(id);
       history.push(`/decks/${id}`);
     } else {
       const newDeck = await createDeck({
@@ -70,12 +74,15 @@ const Form = ({
           placeholder="Brief description of the deck"
         ></textarea>
       </div>
-      <Link to={`/decks/${id}`}>
-        <button type="button" className="btn btn-secondary btn-lg">
-          Cancel
-        </button>
-      </Link>
-      <button type="submit" className="btn btn-primary">
+
+      <button
+        onClick={() => cancelButtonHandler()}
+        type="button"
+        className="btn btn-secondary btn-md"
+      >
+        Cancel
+      </button>
+      <button type="submit" className="btn btn-primary btn-md ml-2">
         Submit
       </button>
     </form>

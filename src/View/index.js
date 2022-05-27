@@ -16,7 +16,6 @@ function View() {
   const [deckInfo, setDeckInfo] = useState({});
 
   const loadDeck = async (deckId) => {
-    console.log("load deck execute....");
     const deck = await readDeck(deckId);
     setDeckInfo({ ...deck });
   };
@@ -31,14 +30,14 @@ function View() {
         <Route exact={true} path={`${path}`}>
           <Navigation deckInfo={deckInfo} />
           <Deck deckInfo={deckInfo} />
-          <h1>Cards</h1>
+          <h2 className="mt-4">Cards</h2>
           <Cards deckInfo={deckInfo} loadDeck={loadDeck} />
         </Route>
         <Route path={`${path}/cards/new`}>
           <AddCard deckName={deckInfo.name} />
         </Route>
         <Route path={`${path}/edit`}>
-          <EditDeck deckInfo={deckInfo} />
+          <EditDeck deckInfo={deckInfo} loadDeck={loadDeck} />
         </Route>
         <Route path={`/decks/:deckId/cards/:cardId/edit`}>
           <EditCard loadDeck={loadDeck} />

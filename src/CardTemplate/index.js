@@ -6,10 +6,9 @@ const NewCard = ({ card = {}, deckName = "", loadDeck }) => {
   const { back, front, id: cardId, deckId } = card;
 
   return (
-    //console.log("load deck>>>: ", loadDeck(deckId)),
     <div className="container">
       <Navigation deckName={deckName} cardId={cardId} />
-      <h1>{cardId ? `Edit Card` : `${deckName}: Add Card`}</h1>
+      <h2>{cardId ? `Edit Card` : `${deckName}: Add Card`}</h2>
       <Form
         front={front}
         back={back}

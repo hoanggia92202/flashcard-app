@@ -10,7 +10,6 @@ function Study() {
   const { deckId } = useParams();
   const [title, setTitle] = useState("");
   const [cards, setCards] = useState([]);
-  //const { name, cards } = decks;
 
   //retrieve the deck using deckId
   useEffect(() => {
@@ -18,13 +17,11 @@ function Study() {
       const deck = await readDeck(deckId);
       setTitle(deck.name);
       setCards([...deck.cards]);
-      //console.log("study", deck);
     };
     loadDeck();
   }, [deckId]);
 
   return (
-    //console.log("study", deckId),
     <div className="container">
       <Navigation name={title} />
       <Title name={title} />

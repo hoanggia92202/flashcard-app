@@ -1,6 +1,6 @@
 import DeckTemplate from "../DeckTemplate";
 
-const EditDeck = ({ deckInfo }) => {
+const EditDeck = ({ deckInfo, loadDeck }) => {
   const { name, description, id } = deckInfo;
   return (
     <DeckTemplate
@@ -8,6 +8,7 @@ const EditDeck = ({ deckInfo }) => {
       name={name}
       description={description}
       id={id}
+      loadDeck={loadDeck}
     />
   );
 };

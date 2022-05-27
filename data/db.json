@@ -1,9 +1,9 @@
 {
   "decks": [
     {
-      "name": "polo",
-      "description": "yellow dog",
-      "id": 1
+      "name": "tester deck 6",
+      "description": "testing.....6",
+      "id": 3
     }
   ],
   "cards": [
@@ -33,28 +33,10 @@
       "id": 10
     },
     {
-      "front": "polo 666",
-      "back": "dog 666\n",
-      "id": 11,
-      "deckId": 1
-    },
-    {
-      "front": "max 888",
-      "back": "bully the best 888.",
-      "id": 12,
-      "deckId": 1
-    },
-    {
-      "front": "test front",
-      "back": "test back",
-      "deckId": 1,
-      "id": 13
-    },
-    {
-      "front": "test",
-      "back": "test",
-      "deckId": 1,
-      "id": 14
+      "front": "1st card.",
+      "back": "\"happy\"",
+      "deckId": 3,
+      "id": 11
     }
   ]
 }

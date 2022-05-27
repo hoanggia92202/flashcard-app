@@ -1,14 +1,22 @@
 import React from "react";
-import { Link, useRouteMatch, useParams } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { deleteDeck } from "../utils/api";
 
 const Deck = ({ deckInfo }) => {
   const { name, description, id } = deckInfo;
-  const { url } = useRouteMatch();
-  const params = useParams();
+  const history = useHistory();
+
+  const deleteButtonHandler = async () => {
+    const confirm = window.confirm(
+      "\nDelete this deck ?\n\nYou will not be able to recover it."
+    );
+    if (confirm) {
+      await deleteDeck(id);
+      history.push("/");
+    }
+  };
 
   return (
-    //console.log("Deck path: ", url),
     <div className="row">
       <div className="col-sm-7">
         <div className="card">
@@ -17,7 +25,6 @@ const Deck = ({ deckInfo }) => {
               <h5 className="card-title">{name}</h5>
             </div>
             <p className="card-text">{description}</p>
-
             <div className="row">
               <div className="col-9">
                 <Link to={`/decks/${id}/edit`}>
@@ -32,12 +39,16 @@ const Deck = ({ deckInfo }) => {
                 </Link>
                 <Link to={`/decks/${id}/cards/new`}>
                   <button type="button" className="btn btn-primary btn-md ml-2">
-                    Add Card
+                    Add Cards
                   </button>
                 </Link>
               </div>
               <div className="col-3">
-                <button type="button" className="btn btn-danger btn-md">
+                <button
+                  onClick={deleteButtonHandler}
+                  type="button"
+                  className="btn btn-danger btn-md"
+                >
                   Delete
                 </button>
               </div>

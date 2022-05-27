@@ -7,7 +7,7 @@ const Button = ({ buttonType, buttonTypeHandler }) => {
       type="button"
       className={`btn btn-${
         buttonType === "Flip" ? "secondary" : "primary"
-      } btn-lg`}
+      } btn-md mr-2`}
     >
       {buttonType}
     </button>

@@ -17,12 +17,12 @@ const Card = ({ front, back, id, deckId, loadDeck }) => {
     <div className="row">
       <div className="col-sm-7">
         <div className="card">
-          <div className="card-body">
-            <div className="d-flex justify-content-between">
-              <p className="card-title">{front}</p>
-              <p className="card-title">{back}</p>
+          <div className="card-body d-flex flex-column">
+            <div className="row d-flex justify-content-between">
+              <p className="card-title col-6">{front}</p>
+              <p className="card-title col-6">{back}</p>
             </div>
-            <div>
+            <div className="align-self-end">
               <Link to={`/decks/${deckId}/cards/${id}/edit`}>
                 <button type="button" className="btn btn-secondary btn-md">
                   Edit

@@ -28,6 +28,12 @@ const Form = ({
     }
   };
 
+  const onClickHandler = (type) => {
+    if (type === "done") {
+      history.goBack();
+    }
+  };
+
   const submitHandler = async (event) => {
     event.preventDefault();
     if (cardId) {
@@ -44,7 +50,7 @@ const Form = ({
         front: cardFront,
         back: cardBack,
       });
-      history.goBack();
+      //history.goBack();
     }
   };
 
@@ -72,12 +78,14 @@ const Form = ({
           placeholder="Back side of card"
         ></textarea>
       </div>
-      <Link to={`/decks/${deckId}`}>
-        <button type="button" className="btn btn-primary btn-lg">
-          Done
-        </button>
-      </Link>
-      <button type="submit" className="btn btn-primary">
+      <button
+        onClick={() => onClickHandler("done")}
+        type="button"
+        className="btn btn-primary btn-md mr-2"
+      >
+        Done
+      </button>
+      <button type="submit" className="btn btn-primary btn-md">
         Save
       </button>
     </form>

@@ -9,13 +9,13 @@ const NotEnoughCard = ({ cards }) => {
     console.log("NotEnoughCard  param: ", deckId),
     (
       <>
-        <h1>Not Enough Cards.</h1>
-        <h5>
+        <h4>Not Enough Cards.</h4>
+        <h6>
           You need at least 3 cards to study. There are {numberOfCard} cards in
           this deck.
-        </h5>
+        </h6>
         <Link to={`/decks/${deckId}/cards/new`}>
-          <button type="button" className="btn btn-primary btn-lg">
+          <button type="button" className="btn btn-primary btn-md mt-3">
             Add Card
           </button>
         </Link>
