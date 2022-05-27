@@ -10,13 +10,17 @@ const EditCard = ({ loadDeck }) => {
 
   useEffect(() => {
     const loadCard = async () => {
-      const card = await readCard(cardId);
-      const deck = await readDeck(deckId);
-      setCard({ ...card });
-      setDeckName(deck.name);
+      try {
+        const card = await readCard(cardId);
+        const deck = await readDeck(deckId);
+        setCard({ ...card });
+        setDeckName(deck.name);
+      } catch (error) {
+        console.log("Error", error);
+      }
     };
     loadCard();
-  }, [cardId, deckId, loadDeck]);
+  }, [cardId, deckId]);
 
   return <CardTemplate card={card} deckName={deckName} loadDeck={loadDeck} />;
 };

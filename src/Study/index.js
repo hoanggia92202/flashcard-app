@@ -14,9 +14,13 @@ function Study() {
   /* retrieve the deck using deckId */
   useEffect(() => {
     const loadDeck = async () => {
-      const deck = await readDeck(deckId);
-      setTitle(deck.name);
-      setCards([...deck.cards]);
+      try {
+        const deck = await readDeck(deckId);
+        setTitle(deck.name);
+        setCards([...deck.cards]);
+      } catch (error) {
+        console.log("Error", error);
+      }
     };
     loadDeck();
   }, [deckId]);

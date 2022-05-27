@@ -12,8 +12,12 @@ const Deck = ({ deckInfo }) => {
       "\nDelete this deck ?\n\nYou will not be able to recover it."
     );
     if (confirm) {
-      await deleteDeck(id);
-      history.push("/");
+      try {
+        await deleteDeck(id);
+        history.push("/");
+      } catch (error) {
+        console.log("Error", error);
+      }
     }
   };
 

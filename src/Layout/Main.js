@@ -8,8 +8,12 @@ function Main() {
 
   /* retrieve list of decks */
   const loadDecks = async () => {
-    const decks = await listDecks();
-    setDecks(decks);
+    try {
+      const decks = await listDecks();
+      setDecks(decks);
+    } catch (error) {
+      console.log("Error", error);
+    }
   };
 
   /* call loadDecks() when app start */

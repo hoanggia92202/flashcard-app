@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { createDeck, updateDeck } from "../utils/api";
 import { useHistory } from "react-router-dom";
-import { useState } from "react";
 
 const Form = ({
   defaultDeckName = "",
@@ -36,20 +35,28 @@ const Form = ({
     event.preventDefault();
     /* update an existing deck */
     if (title === "Edit Deck") {
-      await updateDeck({
-        name: deckName,
-        description: description,
-        id: id,
-      });
-      loadDeck(id);
-      history.push(`/decks/${id}`);
+      try {
+        await updateDeck({
+          name: deckName,
+          description: description,
+          id: id,
+        });
+        loadDeck(id);
+        history.push(`/decks/${id}`);
+      } catch (error) {
+        console.log("Error", error);
+      }
     } else {
       /* create new deck */
-      const newDeck = await createDeck({
-        name: deckName,
-        description: description,
-      });
-      history.push(`/decks/${newDeck.id}`);
+      try {
+        const newDeck = await createDeck({
+          name: deckName,
+          description: description,
+        });
+        history.push(`/decks/${newDeck.id}`);
+      } catch (error) {
+        console.log("Error", error);
+      }
     }
   };
 

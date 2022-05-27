@@ -10,9 +10,13 @@ const Deck = ({ name, description, cards, id, loadDecks }) => {
     );
 
     if (confirm) {
-      await deleteDeck(id);
-      /* reload the list of decks */
-      loadDecks();
+      try {
+        await deleteDeck(id);
+        /* reload the list of decks */
+        loadDecks();
+      } catch (error) {
+        console.log("Error", error);
+      }
     }
   };
   return (

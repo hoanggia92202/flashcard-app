@@ -13,8 +13,12 @@ function View() {
 
   /* load a single deck base on the deck ID */
   const loadDeck = async (deckId) => {
-    const deck = await readDeck(deckId);
-    setDeckInfo({ ...deck });
+    try {
+      const deck = await readDeck(deckId);
+      setDeckInfo({ ...deck });
+    } catch (error) {
+      console.log("Error", error);
+    }
   };
 
   useEffect(() => {

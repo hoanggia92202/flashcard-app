@@ -9,9 +9,13 @@ const Card = ({ front, back, id, deckId, loadDeck }) => {
     );
 
     if (confirm) {
-      await deleteCard(id);
-      /* reload the list of decks */
-      loadDeck(deckId);
+      try {
+        await deleteCard(id);
+        /* reload the list of decks */
+        loadDeck(deckId);
+      } catch (error) {
+        console.log("Error", error);
+      }
     }
   };
   return (
