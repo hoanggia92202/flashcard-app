@@ -11,7 +11,7 @@ function Study() {
   const [title, setTitle] = useState("");
   const [cards, setCards] = useState([]);
 
-  //retrieve the deck using deckId
+  /* retrieve the deck using deckId */
   useEffect(() => {
     const loadDeck = async () => {
       const deck = await readDeck(deckId);
@@ -23,8 +23,9 @@ function Study() {
 
   return (
     <div className="container">
-      <Navigation name={title} />
+      <Navigation name={title} deckId={deckId} />
       <Title name={title} />
+      {/* if less than 3 cards in the deck, render NotEnoughCard, else render Card */}
       {cards.length < 3 ? (
         <NotEnoughCard cards={cards} />
       ) : (

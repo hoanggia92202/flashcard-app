@@ -9,6 +9,7 @@ const Navigation = ({ deckName, type }) => {
         <li className="breadcrumb-item">
           <Link to={`/`}>Home</Link>
         </li>
+        {/* if deckName is true, render the nav-bar with deckName */}
         {deckName ? (
           <>
             <li className="breadcrumb-item active" aria-current="page">

@@ -31,7 +31,6 @@ const Card = ({ cards }) => {
   };
 
   const nextButtonHandler = () => {
-    // console.log("nextButtonHandler: ", cards.length);
     /* if end of deck */
     if (index === cards.length - 1) {
       const confirm = window.confirm(

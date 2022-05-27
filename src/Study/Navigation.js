@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Navigation = ({ name }) => {
+  const { deckId } = useParams();
   return (
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
@@ -9,7 +10,7 @@ const Navigation = ({ name }) => {
           <Link to={`/`}>Home</Link>
         </li>
         <li className="breadcrumb-item">
-          <a href="#">{name}</a>
+          <Link to={`/decks/${deckId}`}>{name}</Link>
         </li>
         <li className="breadcrumb-item active" aria-current="page">
           Data

@@ -5,6 +5,7 @@ const Cards = ({ deckInfo, loadDeck }) => {
   const { cards } = deckInfo;
   return (
     <>
+      {/* if there is any card in the deck, pass its values to Card component for render */}
       {cards
         ? cards.map(({ front, back, id, deckId }) => (
             <Card

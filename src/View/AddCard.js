@@ -1,8 +1,8 @@
 import React from "react";
 import CardTemplate from "../CardTemplate";
 
-const AddCard = ({ deckName }) => {
-  return <CardTemplate deckName={deckName} />;
+const AddCard = ({ deckName, loadDeck }) => {
+  return <CardTemplate deckName={deckName} loadDeck={loadDeck} />;
 };
 
 export default AddCard;

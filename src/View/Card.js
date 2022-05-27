@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { deleteCard } from "../utils/api";
 
 const Card = ({ front, back, id, deckId, loadDeck }) => {
+  /* delete a card */
   const deleteButtonHandler = async () => {
     const confirm = window.confirm(
       "\nDelete this card ?\n\nYou will not be able to recover it."

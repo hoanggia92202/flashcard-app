@@ -1,11 +1,5 @@
 {
-  "decks": [
-    {
-      "name": "tester deck 6",
-      "description": "testing.....6",
-      "id": 3
-    }
-  ],
+  "decks": [],
   "cards": [
     {
       "front": "what number?>>>>>",
@@ -31,12 +25,6 @@
       "front": "ty",
       "back": "ty",
       "id": 10
-    },
-    {
-      "front": "1st card.",
-      "back": "\"happy\"",
-      "deckId": 3,
-      "id": 11
     }
   ]
 }

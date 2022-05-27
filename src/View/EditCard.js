@@ -11,8 +11,8 @@ const EditCard = ({ loadDeck }) => {
   useEffect(() => {
     const loadCard = async () => {
       const card = await readCard(cardId);
-      setCard({ ...card });
       const deck = await readDeck(deckId);
+      setCard({ ...card });
       setDeckName(deck.name);
     };
     loadCard();

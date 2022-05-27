@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { createCard, updateCard } from "../utils/api";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useState } from "react";
 
 const Form = ({
@@ -20,6 +20,7 @@ const Form = ({
     setCardBack(back);
   }, [back, front]);
 
+  /* update user input field */
   const onChangeHandler = (event) => {
     if (event.target.id === "front") {
       setCardFront(event.target.value);
@@ -28,14 +29,15 @@ const Form = ({
     }
   };
 
-  const onClickHandler = (type) => {
-    if (type === "done") {
-      history.goBack();
-    }
+  /* when user click "done" or "cancel" */
+  const clickButtonHandler = () => {
+    loadDeck(paramDeckId);
+    history.goBack();
   };
 
   const submitHandler = async (event) => {
     event.preventDefault();
+    /* if cardId exist, then update the card */
     if (cardId) {
       await updateCard({
         front: cardFront,
@@ -46,11 +48,13 @@ const Form = ({
       loadDeck(deckId);
       history.goBack();
     } else {
+      /* if cardId does not exist, then create a new card */
       await createCard(paramDeckId, {
         front: cardFront,
         back: cardBack,
       });
-      //history.goBack();
+      setCardFront(front);
+      setCardBack(back);
     }
   };
 
@@ -79,11 +83,11 @@ const Form = ({
         ></textarea>
       </div>
       <button
-        onClick={() => onClickHandler("done")}
+        onClick={clickButtonHandler}
         type="button"
-        className="btn btn-primary btn-md mr-2"
+        className="btn btn-secondary btn-md mr-2"
       >
-        Done
+        {cardId ? "Cancel" : "Done"}
       </button>
       <button type="submit" className="btn btn-primary btn-md">
         Save

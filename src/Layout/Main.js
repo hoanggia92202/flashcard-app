@@ -6,12 +6,13 @@ import Deck from "./Deck";
 function Main() {
   const [decks, setDecks] = useState([]);
 
+  /* retrieve list of decks */
   const loadDecks = async () => {
     const decks = await listDecks();
     setDecks(decks);
   };
 
-  /* load decks when app start */
+  /* call loadDecks() when app start */
   useEffect(() => {
     loadDecks();
   }, []);
@@ -23,6 +24,7 @@ function Main() {
           + Create Deck
         </button>
       </Link>
+      {/* render each deck */}
       {decks.map(({ name, description, cards, id }) => (
         <Deck
           key={id}

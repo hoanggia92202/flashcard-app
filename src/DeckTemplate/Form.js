@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { createDeck, updateDeck } from "../utils/api";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useState } from "react";
 
 const Form = ({
@@ -19,6 +19,7 @@ const Form = ({
     setDescription(defaultDescription);
   }, [defaultDeckName, defaultDescription]);
 
+  /* update user input field */
   const onChangeHandler = (event) => {
     if (event.target.id === "name") {
       setDeckName(event.target.value);
@@ -33,6 +34,7 @@ const Form = ({
 
   const submitHandler = async (event) => {
     event.preventDefault();
+    /* update an existing deck */
     if (title === "Edit Deck") {
       await updateDeck({
         name: deckName,
@@ -42,6 +44,7 @@ const Form = ({
       loadDeck(id);
       history.push(`/decks/${id}`);
     } else {
+      /* create new deck */
       const newDeck = await createDeck({
         name: deckName,
         description: description,

@@ -6,6 +6,7 @@ const Deck = ({ deckInfo }) => {
   const { name, description, id } = deckInfo;
   const history = useHistory();
 
+  /* delete deck */
   const deleteButtonHandler = async () => {
     const confirm = window.confirm(
       "\nDelete this deck ?\n\nYou will not be able to recover it."
