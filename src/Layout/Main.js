@@ -8,7 +8,6 @@ function Main() {
 
   const loadDecks = async () => {
     const decks = await listDecks();
-    //console.log("decks: ", decks);
     setDecks(decks);
   };
 
@@ -20,7 +19,7 @@ function Main() {
   return (
     <div className="container">
       <Link to="/decks/new">
-        <button type="button" className="btn btn-primary btn-lg">
+        <button type="button" className="btn btn-primary btn-md mb-2">
           + Create Deck
         </button>
       </Link>

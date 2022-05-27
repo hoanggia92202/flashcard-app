@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Header from "./Header";
 import Main from "./Main";
 import Study from "../Study";
 import View from "../View";
 import NewDeck from "../DeckTemplate";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
-//import { listDecks } from "../utils/api";
 import NotFound from "./NotFound";
 
 function Layout() {
   const { path } = useRouteMatch();
-  //const [decks, setDecks] = useState([]);
 
   return (
     <>

@@ -26,18 +26,18 @@ const Deck = ({ name, description, cards, id, loadDecks }) => {
             <p className="card-text">{description}</p>
             <div>
               <Link to={`/decks/${id}`}>
-                <button type="button" className="btn btn-secondary btn-lg">
+                <button type="button" className="btn btn-secondary btn-md">
                   View
                 </button>
               </Link>
               <Link to={`/decks/${id}/study`}>
-                <button type="button" className="btn btn-primary btn-lg">
+                <button type="button" className="btn btn-primary btn-md ml-2">
                   Study
                 </button>
               </Link>
               <button
                 type="button"
-                className="btn btn-danger btn-lg"
+                className="btn btn-danger btn-md ml-2"
                 onClick={deleteButtonHandler}
               >
                 Delete
