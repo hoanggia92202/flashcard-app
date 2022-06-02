@@ -2,13 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createDeck, updateDeck } from "../utils/api";
 import { useHistory } from "react-router-dom";
 
-const Form = ({
-  defaultDeckName = "",
-  defaultDescription = "",
-  title,
-  id,
-  loadDeck,
-}) => {
+const Form = ({ defaultDeckName = "", defaultDescription = "", title, id }) => {
   const history = useHistory();
   const [deckName, setDeckName] = useState("");
   const [description, setDescription] = useState("");
@@ -41,7 +35,6 @@ const Form = ({
           description: description,
           id: id,
         });
-        loadDeck(id);
         history.push(`/decks/${id}`);
       } catch (error) {
         console.log("Error", error);

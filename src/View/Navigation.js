@@ -1,8 +1,20 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { readDeck } from "../utils/api";
+import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
-const Navigation = ({ deckInfo }) => {
-  const { name } = deckInfo;
+const Navigation = () => {
+  const { deckId } = useParams();
+  const [deckName, setDeckName] = useState("");
+
+  useEffect(() => {
+    async function loadDeck() {
+      const { name } = await readDeck(deckId);
+      setDeckName(name);
+    }
+    loadDeck();
+  }, [deckId]);
+
   return (
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
@@ -10,7 +22,7 @@ const Navigation = ({ deckInfo }) => {
           <Link to={`/`}>Home</Link>
         </li>
         <li className="breadcrumb-item active" aria-current="page">
-          {name}
+          {deckName}
         </li>
       </ol>
     </nav>

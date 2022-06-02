@@ -3,13 +3,13 @@ import Navigation from "./Navigation";
 import Deck from "./Deck";
 import Cards from "./Cards";
 
-const Main = ({ deckInfo, loadDeck }) => {
+const Main = () => {
   return (
     <>
-      <Navigation deckInfo={deckInfo} />
-      <Deck deckInfo={deckInfo} />
+      <Navigation />
+      <Deck />
       <h2 className="mt-4">Cards</h2>
-      <Cards deckInfo={deckInfo} loadDeck={loadDeck} />
+      <Cards />
     </>
   );
 };

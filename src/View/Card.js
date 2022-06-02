@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { deleteCard } from "../utils/api";
 
-const Card = ({ front, back, id, deckId, loadDeck }) => {
+const Card = ({ front, back, id, deckId, reLoadDeck }) => {
   /* delete a card */
   const deleteButtonHandler = async () => {
     const confirm = window.confirm(
@@ -12,7 +12,7 @@ const Card = ({ front, back, id, deckId, loadDeck }) => {
       try {
         await deleteCard(id);
         /* reload the list of decks */
-        loadDeck(deckId);
+        reLoadDeck();
       } catch (error) {
         console.log("Error", error);
       }

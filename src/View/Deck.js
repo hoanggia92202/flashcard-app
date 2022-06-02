@@ -1,19 +1,30 @@
-import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { deleteDeck } from "../utils/api";
+import { deleteDeck, readDeck } from "../utils/api";
+import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
-const Deck = ({ deckInfo }) => {
-  const { name, description, id } = deckInfo;
+const Deck = () => {
   const history = useHistory();
+  const { deckId } = useParams();
+  const [deckInfo, setDeckInfo] = useState({});
 
-  /* delete deck */
+  // load a deck
+  useEffect(() => {
+    async function loadDeck() {
+      const deck = await readDeck(deckId);
+      setDeckInfo({ ...deck });
+    }
+    loadDeck();
+  }, [deckId]);
+
+  // delete deck
   const deleteButtonHandler = async () => {
     const confirm = window.confirm(
       "\nDelete this deck ?\n\nYou will not be able to recover it."
     );
     if (confirm) {
       try {
-        await deleteDeck(id);
+        await deleteDeck(deckInfo.id);
         history.push("/");
       } catch (error) {
         console.log("Error", error);
@@ -27,22 +38,22 @@ const Deck = ({ deckInfo }) => {
         <div className="card">
           <div className="card-body  ">
             <div className="d-flex justify-content-between">
-              <h5 className="card-title">{name}</h5>
+              <h5 className="card-title">{deckInfo.name}</h5>
             </div>
-            <p className="card-text">{description}</p>
+            <p className="card-text">{deckInfo.description}</p>
             <div className="row">
               <div className="col-9">
-                <Link to={`/decks/${id}/edit`}>
+                <Link to={`/decks/${deckInfo.id}/edit`}>
                   <button type="button" className="btn btn-secondary btn-md">
                     Edit
                   </button>
                 </Link>
-                <Link to={`/decks/${id}/study`}>
+                <Link to={`/decks/${deckInfo.id}/study`}>
                   <button type="button" className="btn btn-primary btn-md ml-2">
                     Study
                   </button>
                 </Link>
-                <Link to={`/decks/${id}/cards/new`}>
+                <Link to={`/decks/${deckInfo.id}/cards/new`}>
                   <button type="button" className="btn btn-primary btn-md ml-2">
                     Add Cards
                   </button>

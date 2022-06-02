@@ -3,13 +3,7 @@ import { createCard, updateCard } from "../utils/api";
 import { useParams, useHistory } from "react-router-dom";
 import { useState } from "react";
 
-const Form = ({
-  front = "",
-  back = "",
-  cardId = "",
-  deckId = "",
-  loadDeck,
-}) => {
+const Form = ({ front = "", back = "", cardId = "", deckId = "" }) => {
   const { deckId: paramDeckId } = useParams();
   const [cardFront, setCardFront] = useState("");
   const [cardBack, setCardBack] = useState("");
@@ -31,7 +25,6 @@ const Form = ({
 
   /* when user click "done" or "cancel" */
   const clickButtonHandler = () => {
-    loadDeck(paramDeckId);
     history.goBack();
   };
 
@@ -45,7 +38,6 @@ const Form = ({
         id: cardId,
         deckId: deckId,
       });
-      loadDeck(deckId);
       history.goBack();
     } else {
       /* if cardId does not exist, then create a new card */

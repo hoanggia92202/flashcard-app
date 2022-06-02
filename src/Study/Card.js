@@ -55,7 +55,7 @@ const Card = ({ cards }) => {
         <div className="card">
           <div className="card-body">
             <div className="d-flex justify-content-between">
-              <h5 className="card-title">{`Card ${cardNumber}  of ${totalCard}`}</h5>
+              <h5 className="card-title">{`Card ${cardNumber} of ${totalCard}`}</h5>
             </div>
             <p className="card-text">{cardSide}</p>
             <Button buttonType={"Flip"} buttonTypeHandler={flipButtonHandler} />

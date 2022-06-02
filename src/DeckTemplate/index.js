@@ -2,7 +2,8 @@ import React from "react";
 import Navigation from "./Navigation";
 import Form from "./Form";
 
-function NewDeck({ title, name = "", description = "", id = "", loadDeck }) {
+// this component is used by EditDeck.js and Layout/index.js
+function NewDeck({ title, name = "", description = "", id = "" }) {
   return (
     <div className="container">
       <Navigation deckName={name} type={title} />
@@ -12,7 +13,6 @@ function NewDeck({ title, name = "", description = "", id = "", loadDeck }) {
         defaultDescription={description}
         title={title}
         id={id}
-        loadDeck={loadDeck}
       />
     </div>
   );
