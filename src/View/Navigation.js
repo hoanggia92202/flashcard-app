@@ -17,7 +17,7 @@ const Navigation = () => {
 
   return (
     <nav aria-label="breadcrumb">
-      <ol className="breadcrumb">
+      <ol className="breadcrumb col-sm-7">
         <li className="breadcrumb-item">
           <Link to={`/`}>Home</Link>
         </li>
