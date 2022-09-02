@@ -79,7 +79,7 @@ const Form = ({ front = "", back = "", cardId = "", deckId = "" }) => {
         type="button"
         className="btn btn-secondary btn-md mr-2"
       >
-        {cardId ? "Cancel" : "Done"}
+        Cancel
       </button>
       <button type="submit" className="btn btn-primary btn-md">
         Save

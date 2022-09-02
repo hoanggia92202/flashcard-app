@@ -1,54 +1,23 @@
 {
   "decks": [
     {
-      "name": "max",
-      "description": "dog...",
+      "name": "Data structure",
+      "description": "SQL basic",
       "id": 1
     }
   ],
   "cards": [
     {
-      "front": "what number?>>>>>",
-      "back": "777>>>>>>",
-      "id": 4
-    },
-    {
-      "front": "oh no",
-      "back": "oh no",
-      "id": 5
-    },
-    {
-      "front": "www.polo",
-      "back": "Iwww.polo",
-      "id": 7
-    },
-    {
-      "front": "yyyyyy not yyyyyy",
-      "back": "yyyyyy not yyyyyy",
-      "id": 9
-    },
-    {
-      "front": "ty",
-      "back": "ty",
-      "id": 10
-    },
-    {
-      "front": "dog who?",
-      "back": "polo",
+      "front": "",
+      "back": "",
       "deckId": 1,
-      "id": 11
+      "id": 1
     },
     {
-      "front": "max age?",
-      "back": "9",
+      "front": "",
+      "back": "",
       "deckId": 1,
-      "id": 12
-    },
-    {
-      "front": "polo age?",
-      "back": "12",
-      "deckId": 1,
-      "id": 13
+      "id": 2
     }
   ]
 }
